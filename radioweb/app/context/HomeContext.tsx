@@ -29,4 +29,20 @@ const HomeContextProvider = ({children}: ProviderProps) => {
     }
 
     const playing_texto = playing ? "Tocar" : "pausar";
+
+    return(
+        <HomeContext.Provider value = {
+            {
+                contador,
+                playing,
+                playing_texto,
+                incremento,
+                togglePlaying,
+            }
+        }>
+            {children}
+        </HomeContext.Provider>
+    )
 }
+
+export default HomeContextProvider;
