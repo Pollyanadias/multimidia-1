@@ -11,3 +11,12 @@ type HomeContextData = {
 }
 
 export const HomeContext = createContext({} as HomeContextData);
+
+type ProviderProps ={
+    children: ReactNode;
+}
+
+const HomeContextProvider = ({children}: ProviderProps) => {
+    const [contador, setContador] = useState(0);
+    const [playing, setPlaying] = useState(false);
+}
