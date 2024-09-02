@@ -19,4 +19,14 @@ type ProviderProps ={
 const HomeContextProvider = ({children}: ProviderProps) => {
     const [contador, setContador] = useState(0);
     const [playing, setPlaying] = useState(false);
+
+    const incremento = () => {
+        setContador (contador + 1);
+    }
+
+    const togglePlaying = () => {
+        setPlaying (!playing);
+    }
+
+    const playing_texto = playing ? "Tocar" : "pausar";
 }
