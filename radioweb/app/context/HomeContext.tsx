@@ -22,11 +22,11 @@ const HomeContextProvider = ({children}: ProviderProps) => {
 
     const incremento = () => {
         setContador (contador + 1);
-    }
+    };
 
     const togglePlaying = () => {
         setPlaying (!playing);
-    }
+    };
 
     const playing_texto = playing ? "Tocar" : "pausar";
 
