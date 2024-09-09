@@ -12,7 +12,7 @@ export default function Home() {
   const context = useContext(HomeContext);
 
   if (!context) {
-    return <div>Carregando</div>;
+    return <div>helooooooooo</div>;
   }
 
   const {
