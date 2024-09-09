@@ -1,26 +1,53 @@
 'use client'
 
-import { useContext } from "react";
-import {FaPlayCircle, FaPauseCircle} from "react-icons/fa";
+import Image from "next/image";
 import { HomeContext } from "./context/HomeContext";
-//import Image from "next/image";
+import { useContext } from "react";
+import { FaCirclePlay} from "react-icons/fa6";
+import { FaPauseCircle } from "react-icons/fa";
+import { GiPreviousButton, GiNextButton } from "react-icons/gi";
+import { musics } from "./dados/musica";
 
-export default function Home(){
-  const{
-    contador,
-    incremento,
-    playing,
-    playing_texto,
-    togglePlaying
-  } = useContext (HomeContext);
+export default function Home() {
+  const context = useContext(HomeContext);
 
-  return(
-    <main className = "flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className = "text-[300px]"> {playing_texto}</h1>
-      <button onClick = {togglePlaying}>
-        {playing ? <FaPauseCircle className = "text-[400px] text-[purple]" /> :
-        <FaPlayCircle className = "text-[400px] text-[purple]" />}
-      </button>
+  if (!context) {
+    return <div>Carregando</div>;
+  }
+
+  const {
+    playing, configPlayPause,
+    nomeMusica, passarMusica, voltarMusica,
+    selecionarMusica
+
+  } = context;
+
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+      <div className="flex flex-col items-center justify-center text-center">
+        <h1 className="text-[60px]">{nomeMusica}</h1>
+        <div className="flex items-center">
+          <button onClick={() => voltarMusica()}>
+            <GiPreviousButton className="text-[80px]"/>
+          </button>
+          <button onClick={() => configPlayPause()}>
+            {playing ? <FaPauseCircle className="text-[80px]"/> : <FaCirclePlay className="text-[80px]"/>}
+          </button>
+          <button onClick={() => passarMusica()}>
+            <GiNextButton className="text-[80px]"/>
+          </button>
+        </div>
+        <div className="flex flex-col items-center">
+          {musics.map((music, i) => (
+            <button onClick={() => selecionarMusica(i)}>
+              <div key={i} className="hover:bg-blue-400">
+                <p className="text-[15px]">{music.nome}</p>
+                <p className="text-[10px]">{music.author}</p>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
     </main>
   );
 }
