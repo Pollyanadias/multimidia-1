@@ -47,7 +47,7 @@ export default function Home() {
         className="object-cover rounded-lg" 
       />
 
-        <div className="items-center justify-between bg-gradient-to-r from-fuchsia-300 to-indigo-600 rounded-full">
+        <div className="items-center justify-between bg-gradient-to-r from-red-950 to- bg- bg-violet-950 rounded-full">
         <button onClick={()=> handlePreviousMusic()}>
           { (<GiPreviousButton className="text-[50px] items-center" />)}
          </button>

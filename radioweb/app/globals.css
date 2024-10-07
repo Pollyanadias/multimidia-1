@@ -17,13 +17,24 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
+    color: rgb(var(--foreground-rgb));
+    /* Removendo o gradiente customizado */
+    /* background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+  
+    /* Adicionando a classe Tailwind */
+    @apply bg-gradient-to-r from-black via-red-500 to-white;
 }
 
 @layer utilities {
